@@ -1,1 +1,3 @@
 # todo-list
+
+Hey everyone! This is my third project for the JavaScript course at TOP. Today, I will be creating a todo list application that will showcase my proficiency in topics related to object-oriented design. These topics include factory functions, modules, and best principles, while also incorporating efficiency tools like Webpack and npm scripts for faster development. As always, any media that is not my own will be linked below here; make sure to show all the creators some love! And with that said, thank you for viewing this repo and I hope you liked the project!
