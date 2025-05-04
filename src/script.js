@@ -1,3 +1,5 @@
+import "./styles.css"
+
 // My pseudocode 
 
 // 1. Create a function that appends a new project as an object to another object 'projects' upon button click.
