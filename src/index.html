@@ -4,6 +4,23 @@
     <title>Todo List</title>
   </head>
   <body>
+    <dialog class="add-project-dialog">
+      <form method="dialog">
+        <p class="dialog-title">New Project</p>
+        <div class="new-project-properties">
+          <label for="new-project-name"
+            >Name: <input type="text" id="new-project-name"
+          /></label>
+          <label for="new-project-description"
+            >Description: <input type="text" id="new-project-description"
+          /></label>
+        </div>
+        <div class="new-project-buttons-container">
+          <button class="cancel-new-project-button">Cancel</button
+          ><button class="save-new-project-button">Save</button>
+        </div>
+      </form>
+    </dialog>
     <div class="sidebar">
       <p class="sidebar-title">Projects</p>
       <ul class="projects-list">
@@ -27,7 +44,8 @@
         <div class="todo-item">
           <p class="todo-item-title">Wipe my dog's ass</p>
           <p class="todo-item-properties">
-            <span class="todo-item-description">Make sure this is done pronto.</span
+            <span class="todo-item-description"
+              >Make sure this is done pronto.</span
             ><span class="todo-item-due-date">Due: 01/01/2000</span
             ><span class="todo-item-priority">Priority: High</span>
           </p>
@@ -39,7 +57,8 @@
         <div class="todo-item">
           <p class="todo-item-title">Wipe my dog's ass</p>
           <p class="todo-item-properties">
-            <span class="todo-item-description">Make sure this is done pronto, but not as pronto.</span
+            <span class="todo-item-description"
+              >Make sure this is done pronto, but not as pronto.</span
             ><span class="todo-item-due-date">Due: 01/01/2000</span
             ><span class="todo-item-priority">Priority: Medium</span>
           </p>
@@ -49,17 +68,19 @@
           </div>
         </div>
         <div class="todo-item">
-            <p class="todo-item-title">Wipe my dog's ass</p>
-            <p class="todo-item-properties">
-              <span class="todo-item-description">Make sure this is done pronto, but not nearly as pronto as the other two.</span
-              ><span class="todo-item-due-date">Due: 01/01/2000</span
-              ><span class="todo-item-priority">Priority: Low</span>
-            </p>
-            <div class="todo-item-buttons-container">
-              <button class="edit-todo-item-button">Edit</button
-              ><button class="delete-todo-item-button">Delete</button>
-            </div>
+          <p class="todo-item-title">Wipe my dog's ass</p>
+          <p class="todo-item-properties">
+            <span class="todo-item-description"
+              >Make sure this is done pronto, but not nearly as pronto as the
+              other two.</span
+            ><span class="todo-item-due-date">Due: 01/01/2000</span
+            ><span class="todo-item-priority">Priority: Low</span>
+          </p>
+          <div class="todo-item-buttons-container">
+            <button class="edit-todo-item-button">Edit</button
+            ><button class="delete-todo-item-button">Delete</button>
           </div>
+        </div>
       </div>
     </div>
   </body>

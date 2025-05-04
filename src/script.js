@@ -33,3 +33,15 @@ import "./styles.css"
 //    should appear empty on the left hand side of the web page. Any changes that occur on the web page thereafter (creating a new project,
 //    creating todo items, editing todo items, deleting todo items, etc) should be saved to local storage (find out how to implement local
 //    storage online).
+
+const projects = {}
+
+function createProject(projectName, projectDescription) {
+    
+}
+
+const addProjectDialog = document.querySelector(".add-project-dialog")
+const addProjectButton = document.querySelector(".add-project-button");
+addProjectButton.addEventListener("click", () => {
+    addProjectDialog.showModal()
+})
