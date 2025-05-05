@@ -46,13 +46,22 @@ function displayProjectsList() {
     const projectsList = document.querySelector(".projects-list");
     projectsList.innerHTML = "";
     for (let projectTitle of projectTitles) {
-        const projectSave = document.createElement("li");
+        const projectSaveLabel = document.createElement("li");
+        const projectSave = document.createElement("p");
+        const deleteProjectButton = document.createElement("button");
+        deleteProjectButton.classList = "delete-project-button";
+        deleteProjectButton.textContent = "X";
+        deleteProjectButton.addEventListener("click", () => {
+            deleteProject(projectTitle);
+        })
         projectSave.classList = "project-save";
         projectSave.textContent = projectTitle;
         projectSave.addEventListener("click", () => {
             openProjectSave(projectTitle);
         })
-        projectsList.appendChild(projectSave);
+        projectSaveLabel.appendChild(projectSave);
+        projectSaveLabel.appendChild(deleteProjectButton);
+        projectsList.appendChild(projectSaveLabel);
     }
 }
 
@@ -114,6 +123,10 @@ function openProjectSave(projectSaveTitle) {
 
     const projectIndex = projectTitles.findIndex((projectTitle) => projectTitle == projectSaveTitle);
     displayProjectAndItems(projectTitles[projectIndex], projectDescriptions[projectIndex], projectTodoItems[projectIndex]);
+}
+
+function deleteProject() {
+    
 }
 
 const addProjectDialog = document.querySelector(".add-project-dialog")
