@@ -46,20 +46,29 @@ body::-webkit-scrollbar {
     font-size: 1.25rem;
 }
 
-.project-save {
+.project-save-label {
     transition: background-color .05s;
     border-radius: 4px;
     padding: 3px 6px;
     user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
-.project-save:hover {
+.project-save-label:hover {
     background-color: rgb(138, 30, 30);  
 }
 
-.project-save:active {
+.project-save-label:active {
     background-color: rgba(138, 30, 30, .5);
+}
+
+.delete-project-button {
+    border: none;
+    background: none;
+    color: white;
 }
 
 .add-project-button {

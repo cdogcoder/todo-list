@@ -47,14 +47,21 @@ function displayProjectsList() {
     projectsList.innerHTML = "";
     for (let projectTitle of projectTitles) {
         const projectSaveLabel = document.createElement("li");
+        projectSaveLabel.classList = "project-save-label";
         const projectSave = document.createElement("p");
         const deleteProjectButton = document.createElement("button");
         deleteProjectButton.classList = "delete-project-button";
+        deleteProjectButton.style.cssText = "display: none;"
         deleteProjectButton.textContent = "X";
         deleteProjectButton.addEventListener("click", () => {
             deleteProject(projectTitle);
         })
-        projectSave.classList = "project-save";
+        projectSaveLabel.addEventListener("mouseover", () => {
+            deleteProjectButton.style.cssText = "display: block;";
+        })
+        projectSaveLabel.addEventListener("mouseout", () => {
+            deleteProjectButton.style.cssText = "display: none;";
+        })
         projectSave.textContent = projectTitle;
         projectSave.addEventListener("click", () => {
             openProjectSave(projectTitle);
