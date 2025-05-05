@@ -53,7 +53,7 @@ function displayProjectsList() {
     }
 }
 
-function displayProjectAndItems() {
+function displayProjectAndItems(event) {
     const projectTitles = Object.keys(projects).reverse();
     const projectDescriptions = Object.values(projects).map((value) => value[0]).reverse();
     const projectTodoItems = Object.values(projects).map((value) => value.slice(1)).reverse();
@@ -69,6 +69,9 @@ function displayProjectAndItems() {
         addTodoItemButton.style.cssText = "display: none";
         mainWindow.innerHTML = "";
         projectsList.innerHTML = "";
+    } else if (event) {
+        const selectedProjectTitle = event.target.value;
+        console.log(selectedProjectTitle)
     } else {
         const newestCreatedProjectTitle = projectTitles[0];
         const newestCreatedProjectDescription = projectDescriptions[0];
@@ -88,6 +91,14 @@ function displayProjectAndItems() {
     }
 }
 
+function saveNewProject() {
+    const newProjectTitleInput = document.querySelector("#new-project-title");
+    const newProjectDescriptionInput = document.querySelector("#new-project-description");
+    createProject(newProjectTitleInput.value, newProjectDescriptionInput.value);
+    newProjectTitleInput.value = "";
+    newProjectDescriptionInput.value = "";
+}
+
 const addProjectDialog = document.querySelector(".add-project-dialog")
 const addProjectButton = document.querySelector(".add-project-button");
 addProjectButton.addEventListener("click", () => {
@@ -95,11 +106,4 @@ addProjectButton.addEventListener("click", () => {
 })
 
 const saveNewProjectButton = document.querySelector(".save-new-project-button");
-saveNewProjectButton.addEventListener("click", () => {
-    const newProjectTitleInput = document.querySelector("#new-project-title");
-    const newProjectDescriptionInput = document.querySelector("#new-project-description");
-    createProject(newProjectTitleInput.value, newProjectDescriptionInput.value);
-
-    newProjectTitleInput.value = "";
-    newProjectDescriptionInput.value = "";
-})
+saveNewProjectButton.addEventListener("click", saveNewProject);
