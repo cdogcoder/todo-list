@@ -49,11 +49,14 @@ function displayProjectsList() {
         const projectSave = document.createElement("li");
         projectSave.classList = "project-save";
         projectSave.textContent = projectTitle;
+        projectSave.addEventListener("click", () => {
+            openProjectSave(projectTitle);
+        })
         projectsList.appendChild(projectSave);
     }
 }
 
-function displayProjectAndItems(event) {
+function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDescription = null, selectedProjectTodoItems = null) {
     const projectTitles = Object.keys(projects).reverse();
     const projectDescriptions = Object.values(projects).map((value) => value[0]).reverse();
     const projectTodoItems = Object.values(projects).map((value) => value.slice(1)).reverse();
@@ -69,9 +72,14 @@ function displayProjectAndItems(event) {
         addTodoItemButton.style.cssText = "display: none";
         mainWindow.innerHTML = "";
         projectsList.innerHTML = "";
-    } else if (event) {
-        const selectedProjectTitle = event.target.value;
-        console.log(selectedProjectTitle)
+    } else if (selectedProjectTitle !== null && selectedProjectDescription !== null && selectedProjectTodoItems !== null) {
+        projectTitle.textContent = selectedProjectTitle;
+        projectDescription.textContent = selectedProjectDescription;
+        if (!selectedProjectTodoItems.length) {
+            mainWindow.textContent = "nothing yet";
+        } else {
+            mainWindow.textContent = "skibidize";
+        }
     } else {
         const newestCreatedProjectTitle = projectTitles[0];
         const newestCreatedProjectDescription = projectDescriptions[0];
@@ -97,6 +105,15 @@ function saveNewProject() {
     createProject(newProjectTitleInput.value, newProjectDescriptionInput.value);
     newProjectTitleInput.value = "";
     newProjectDescriptionInput.value = "";
+}
+
+function openProjectSave(projectSaveTitle) {
+    const projectTitles = Object.keys(projects).reverse();
+    const projectDescriptions = Object.values(projects).map((value) => value[0]).reverse();
+    const projectTodoItems = Object.values(projects).map((value) => value.slice(1)).reverse();
+
+    const projectIndex = projectTitles.findIndex((projectTitle) => projectTitle == projectSaveTitle);
+    displayProjectAndItems(projectTitles[projectIndex], projectDescriptions[projectIndex], projectTodoItems[projectIndex]);
 }
 
 const addProjectDialog = document.querySelector(".add-project-dialog")
