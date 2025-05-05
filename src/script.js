@@ -38,6 +38,7 @@ const projects = {}
 
 function createProject(projectTitle, projectDescription) {
     projects[projectTitle] = [projectDescription];
+    displayProjectAndItems();
 }
 
 function displayProjectsList() {
@@ -49,5 +50,40 @@ function displayProjectsList() {
         projectSave.classList = "project-save";
         projectSave.textContent = projectTitle;
         projectsList.appendChild(projectSave);
+    }
+}
+
+function displayProjectAndItems() {
+    const projectTitles = Object.keys(projects).reverse();
+    const projectDescriptions = Object.values(projects).map((value) => value[0]).reverse();
+    const projectTodoItems = Object.values(projects).map((value) => value.slice(1)).reverse();
+
+    const projectTitle = document.querySelector(".project-title");
+    const projectDescription = document.querySelector(".project-description");
+    const addTodoItemButton = document.querySelector(".add-todo-item-button");
+    const mainWindow = document.querySelector(".main-window");
+    const projectsList = document.querySelector(".projects-list");
+    if (!projectTitles.length) {
+        projectTitle.textContent = "No project available";
+        projectDescription.textContent = 'Click the "Add Project" button to start planning.';
+        addTodoItemButton.style.cssText = "display: none";
+        mainWindow.innerHTML = "";
+        projectsList.innerHTML = "";
+    } else {
+        const newestCreatedProjectTitle = projectTitles[0];
+        const newestCreatedProjectDescription = projectDescriptions[0];
+        const newestCreatedProjectTodoItems = projectTodoItems[0];
+        
+        projectTitle.textContent = newestCreatedProjectTitle;
+        projectDescription.textContent = newestCreatedProjectDescription;
+        addTodoItemButton.style.cssText = "display: block";
+        projectTodoItems.textContent = newestCreatedProjectTodoItems;
+        if (!newestCreatedProjectTodoItems.length) {
+            mainWindow.textContent = "nothing yet";
+        } else {
+            mainWindow.textContent = "skibidize";
+        }
+        displayProjectsList();
+
     }
 }
