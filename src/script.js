@@ -6,7 +6,7 @@ import "./styles.css"
 //    The user should be able to click an associated button to add a new project to their collection of projects,
 //    and then have it open a new project window on the webpage, where they can start adding todo items 
 //    immediately. The new project should be stored as a key-value pair in the 'projects' object, where the key 
-//    is the name of the project and the value is an empty list. The new project window should be generated via 
+//    is the title of the project and the value is an empty list. The new project window should be generated via 
 //    the DOM.
 // 2. Create a function that deletes a project upon button click. The user should be able to click an associated button
 //    to delete a project from their collection of projects and have the first project listed appear back on screen
@@ -36,12 +36,6 @@ import "./styles.css"
 
 const projects = {}
 
-function createProject(projectName, projectDescription) {
-    
+function createProject(projectTitle, projectDescription) {
+    projects[projectTitle] = [projectDescription];
 }
-
-const addProjectDialog = document.querySelector(".add-project-dialog")
-const addProjectButton = document.querySelector(".add-project-button");
-addProjectButton.addEventListener("click", () => {
-    addProjectDialog.showModal()
-})
