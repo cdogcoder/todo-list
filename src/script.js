@@ -87,3 +87,19 @@ function displayProjectAndItems() {
 
     }
 }
+
+const addProjectDialog = document.querySelector(".add-project-dialog")
+const addProjectButton = document.querySelector(".add-project-button");
+addProjectButton.addEventListener("click", () => {
+    addProjectDialog.showModal()
+})
+
+const saveNewProjectButton = document.querySelector(".save-new-project-button");
+saveNewProjectButton.addEventListener("click", () => {
+    const newProjectTitleInput = document.querySelector("#new-project-title");
+    const newProjectDescriptionInput = document.querySelector("#new-project-description");
+    createProject(newProjectTitleInput.value, newProjectDescriptionInput.value);
+
+    newProjectTitleInput.value = "";
+    newProjectDescriptionInput.value = "";
+})
