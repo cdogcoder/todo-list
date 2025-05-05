@@ -39,3 +39,15 @@ const projects = {}
 function createProject(projectTitle, projectDescription) {
     projects[projectTitle] = [projectDescription];
 }
+
+function displayProjectsList() {
+    const projectTitles = Object.keys(projects).reverse();
+    const projectsList = document.querySelector(".projects-list");
+    projectsList.innerHTML = "";
+    for (let projectTitle of projectTitles) {
+        const projectSave = document.createElement("li");
+        projectSave.classList = "project-save";
+        projectSave.textContent = projectTitle;
+        projectsList.appendChild(projectSave);
+    }
+}
