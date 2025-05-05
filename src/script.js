@@ -36,7 +36,7 @@ import "./styles.css"
 
 const projects = {}
 
-function createProject(projectTitle, projectDescription) {
+function addProject(projectTitle, projectDescription) {
     projects[projectTitle] = [projectDescription];
     displayProjectAndItems();
 }
@@ -102,7 +102,7 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
 function saveNewProject() {
     const newProjectTitleInput = document.querySelector("#new-project-title");
     const newProjectDescriptionInput = document.querySelector("#new-project-description");
-    createProject(newProjectTitleInput.value, newProjectDescriptionInput.value);
+    addProject(newProjectTitleInput.value, newProjectDescriptionInput.value);
     newProjectTitleInput.value = "";
     newProjectDescriptionInput.value = "";
 }
