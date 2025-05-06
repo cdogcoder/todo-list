@@ -132,8 +132,10 @@ function openProjectSave(projectSaveTitle) {
     displayProjectAndItems(projectTitles[projectIndex], projectDescriptions[projectIndex], projectTodoItems[projectIndex]);
 }
 
-function deleteProject() {
-    
+function deleteProject(selectedProjectTitle) {
+    delete projects[selectedProjectTitle];
+    displayProjectsList();
+    displayProjectAndItems();
 }
 
 const addProjectDialog = document.querySelector(".add-project-dialog")
