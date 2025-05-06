@@ -16,6 +16,7 @@ body::-webkit-scrollbar {
 }
 
 .sidebar {
+    min-width: 200px;
     flex: .5;
     background-color: rgb(209, 50, 50);
     padding: 2rem;
@@ -47,6 +48,7 @@ body::-webkit-scrollbar {
 }
 
 .project-save-label {
+    width: 100%;
     transition: background-color .05s;
     border-radius: 4px;
     padding: 3px 6px;
@@ -64,6 +66,14 @@ body::-webkit-scrollbar {
 .project-save-label:active {
     background-color: rgba(138, 30, 30, .5);
 }
+
+.project-save {
+    max-width: 85%;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
 
 .delete-project-button {
     border: none;
