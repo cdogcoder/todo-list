@@ -68,6 +68,7 @@ body::-webkit-scrollbar {
 }
 
 .project-save {
+    white-space: nowrap;
     max-width: 85%;
     overflow-x: scroll;
     scrollbar-width: none;
