@@ -162,7 +162,7 @@ body::-webkit-scrollbar {
 
 .project-title {
     white-space: nowrap;
-    max-width: 100%;
+    max-width: 700px;
     overflow-x: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -224,6 +224,7 @@ body::-webkit-scrollbar {
     gap: 2rem;
     grid-row: 2/3;
     grid-column: 1/2;
+    width: 500px;
     max-width: 700px;
     max-height: 50px;
     overflow: auto;
