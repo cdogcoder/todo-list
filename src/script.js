@@ -49,6 +49,7 @@ function displayProjectsList() {
         const projectSaveLabel = document.createElement("li");
         projectSaveLabel.classList = "project-save-label";
         const projectSave = document.createElement("p");
+        projectSave.classList = "project-save";
         const deleteProjectButton = document.createElement("button");
         deleteProjectButton.classList = "delete-project-button";
         deleteProjectButton.style.cssText = "display: none;"
