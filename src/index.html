@@ -4,6 +4,29 @@
     <title>Todo List</title>
   </head>
   <body>
+    <dialog class="add-todo-item-dialog">
+      <form method="dialog">
+        <p class="dialog-title">New Todo Item</p>
+        <div class="new-todo-item-properties">
+          <label for="new-todo-item-title"
+            >Title: <input type="text" id="new-todo-item-title"
+          /></label>
+          <label for="new-todo-item-description"
+            >Description: <input type="text" id="new-todo-item-description"
+          /></label>
+          <label for="new-todo-item-due-date"
+            >Due Date: <input type="date" id="new-todo-item-due-date"
+          /></label>
+          <label for="new-todo-item-priority"
+            >Priority: <input type="select" id="new-todo-item-priority"
+          /></label>
+        </div>
+        <div class="new-project-buttons-container">
+          <button class="cancel-new-project-button">Cancel</button
+          ><button class="save-new-project-button">Save</button>
+        </div>
+      </form>
+    </dialog>
     <dialog class="add-project-dialog">
       <form method="dialog">
         <p class="dialog-title">New Project</p>
