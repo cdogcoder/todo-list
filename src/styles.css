@@ -135,6 +135,7 @@ body::-webkit-scrollbar {
 }
 
 .main-container {
+    min-width: 700px;
     flex: 3;
     display: flex;
     flex-direction: column;
@@ -145,17 +146,24 @@ body::-webkit-scrollbar {
     height: 10rem;
     display: flex;
     padding: 1.5rem;
+    gap: 1.5rem;
     justify-content: space-between;
     box-shadow: 0px 0px 5px;
 }
 
 .project-information {
+    min-width: 550px;
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: .15rem;
 }
 
 .project-title {
+    max-width: 100%;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     font-size: 2.5rem;
     font-weight: bold;
 }
