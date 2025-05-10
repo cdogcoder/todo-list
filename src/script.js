@@ -43,7 +43,14 @@ function addProject(projectTitle, projectDescription) {
 
 function addTodoItem(itemTitle, itemDescription, itemDueDate, itemPriority) {
     const currentProjectTitle = document.querySelector(".project-title").textContent;
-    
+    const todoItem = {
+        title: itemTitle,
+        description: itemDescription,
+        dueDate: itemDueDate,
+        priority: itemPriority
+    }
+    projects[currentProjectTitle].push(todoItem);
+    displayProjectAndItems();
 }
 
 function displayProjectsList() {
@@ -145,13 +152,13 @@ function deleteProject(selectedProjectTitle) {
 }
 
 function saveNewTodoItem() {
-
+    
 }
 
 const addProjectDialog = document.querySelector(".add-project-dialog")
 const addProjectButton = document.querySelector(".add-project-button");
 addProjectButton.addEventListener("click", () => {
-    addProjectDialog.showModal()
+    addProjectDialog.showModal();
 })
 
 const saveNewProjectButton = document.querySelector(".save-new-project-button");
