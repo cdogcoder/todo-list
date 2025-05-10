@@ -171,6 +171,10 @@ body::-webkit-scrollbar {
 }
 
 .project-description {
+    white-space: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     color: rgb(100, 100, 100);
 }
 
