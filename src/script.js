@@ -152,7 +152,15 @@ function deleteProject(selectedProjectTitle) {
 }
 
 function saveNewTodoItem() {
-    
+    const newTodoItemTitleInput = document.querySelector("#new-todo-item-title");
+    const newTodoItemDescriptionInput = document.querySelector("#new-todo-item-description");
+    const newTodoItemDueDateInput = document.querySelector("#new-todo-item-due-date");
+    const newTodoItemPriorityInput = document.querySelector("#new-todo-item-priority");
+    addTodoItem(newTodoItemTitleInput.value, newTodoItemDescriptionInput.value);
+    newTodoItemTitleInput.value = "";
+    newTodoItemDescriptionInput.value = "";
+    newTodoItemDueDateInput.value = "";
+    newTodoItemPriorityInput.value = "";
 }
 
 const addProjectDialog = document.querySelector(".add-project-dialog")
