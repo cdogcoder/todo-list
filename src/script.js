@@ -95,6 +95,8 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
     const addTodoItemButton = document.querySelector(".add-todo-item-button");
     const mainWindow = document.querySelector(".main-window");
     const projectsList = document.querySelector(".projects-list");
+    
+    mainWindow.innerHTML = "";
     if (!projectTitles.length) {
         projectTitle.textContent = "No project available";
         projectDescription.textContent = 'Click the "Add Project" button to start planning.';
@@ -107,7 +109,42 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
         if (!selectedProjectTodoItems.length) {
             mainWindow.textContent = "nothing yet";
         } else {
-            mainWindow.textContent = "skibidize";
+            selectedProjectTodoItems.forEach((item) => {
+                const todoItem = document.createElement("div");
+                todoItem.classList = "todo-item";
+                const todoItemTitle = document.createElement("p");
+                todoItemTitle.classList = "todo-item-title";
+                todoItemTitle.textContent = item[title];
+                const todoItemProperties = document.createElement("p");
+                todoItemProperties.classList = "todo-item-properties";
+                const todoItemDescription = document.createElement("span");
+                todoItemDescription.classList = "todo-item-description";
+                todoItemDescription.textContent = item[description];
+                const todoItemDueDate = document.createElement("span");
+                todoItemDueDate.classList = "todo-item-due-date";
+                todoItemDueDate.textContent = item[dueDate];
+                const todoItemPriority = document.createElement("span");
+                todoItemPriority.classList = "todo-item-priority";
+                todoItemPriority.textContent = item[priority];
+                const todoItemButtonsContainer = document.createElement("div");
+                todoItemButtonsContainer.classList = "todo-item-buttons-container";
+                const editTodoItemButton = document.createElement("button");
+                editTodoItemButton.classList = "edit-todo-item-button";
+                editTodoItemButton.textContent = "Edit";
+                const deleteTodoItemButton = document.createElement("button");
+                deleteTodoItemButton.classList = "delete-todo-item-button";
+                deleteTodoItemButton.textContent = "Delete";
+
+                todoItemProperties.appendChild(todoItemDescription);
+                todoItemProperties.appendChild(todoItemDueDate);
+                todoItemProperties.appendChild(todoItemPriority);
+                todoItemButtonsContainer.appendChild(editTodoItemButton);
+                todoItemButtonsContainer.appendChild(deleteTodoItemButton);
+                todoItem.appendChild(todoItemTitle);
+                todoItem.appendChild(todoItemProperties);
+                todoItem.appendChild(todoItemButtonsContainer);
+                mainWindow.appendChild(todoItem);
+            })
         }
     } else {
         const newestCreatedProjectTitle = projectTitles[0];
@@ -117,11 +154,47 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
         projectTitle.textContent = newestCreatedProjectTitle;
         projectDescription.textContent = newestCreatedProjectDescription;
         addTodoItemButton.style.cssText = "display: block";
-        projectTodoItems.textContent = newestCreatedProjectTodoItems;
+
         if (!newestCreatedProjectTodoItems.length) {
             mainWindow.textContent = "nothing yet";
         } else {
-            mainWindow.textContent = "skibidize";
+            newestCreatedProjectTodoItems.forEach((item) => {
+                console.log(item)
+                const todoItem = document.createElement("div");
+                todoItem.classList = "todo-item";
+                const todoItemTitle = document.createElement("p");
+                todoItemTitle.classList = "todo-item-title";
+                todoItemTitle.textContent = item["title"];
+                const todoItemProperties = document.createElement("p");
+                todoItemProperties.classList = "todo-item-properties";
+                const todoItemDescription = document.createElement("span");
+                todoItemDescription.classList = "todo-item-description";
+                todoItemDescription.textContent = item["description"];
+                const todoItemDueDate = document.createElement("span");
+                todoItemDueDate.classList = "todo-item-due-date";
+                todoItemDueDate.textContent = item["dueDate"];
+                const todoItemPriority = document.createElement("span");
+                todoItemPriority.classList = "todo-item-priority";
+                todoItemPriority.textContent = item["priority"];
+                const todoItemButtonsContainer = document.createElement("div");
+                todoItemButtonsContainer.classList = "todo-item-buttons-container";
+                const editTodoItemButton = document.createElement("button");
+                editTodoItemButton.classList = "edit-todo-item-button";
+                editTodoItemButton.textContent = "Edit";
+                const deleteTodoItemButton = document.createElement("button");
+                deleteTodoItemButton.classList = "delete-todo-item-button";
+                deleteTodoItemButton.textContent = "Delete";
+
+                todoItemProperties.appendChild(todoItemDescription);
+                todoItemProperties.appendChild(todoItemDueDate);
+                todoItemProperties.appendChild(todoItemPriority);
+                todoItemButtonsContainer.appendChild(editTodoItemButton);
+                todoItemButtonsContainer.appendChild(deleteTodoItemButton);
+                todoItem.appendChild(todoItemTitle);
+                todoItem.appendChild(todoItemProperties);
+                todoItem.appendChild(todoItemButtonsContainer);
+                mainWindow.appendChild(todoItem);
+            })
         }
         displayProjectsList();
 
@@ -156,11 +229,12 @@ function saveNewTodoItem() {
     const newTodoItemDescriptionInput = document.querySelector("#new-todo-item-description");
     const newTodoItemDueDateInput = document.querySelector("#new-todo-item-due-date");
     const newTodoItemPriorityInput = document.querySelector("#new-todo-item-priority");
-    addTodoItem(newTodoItemTitleInput.value, newTodoItemDescriptionInput.value);
+    addTodoItem(newTodoItemTitleInput.value, newTodoItemDescriptionInput.value, newTodoItemDueDateInput.value, newTodoItemPriorityInput.value);
     newTodoItemTitleInput.value = "";
     newTodoItemDescriptionInput.value = "";
     newTodoItemDueDateInput.value = "";
     newTodoItemPriorityInput.value = "";
+    console.log(projects)
 }
 
 const addProjectDialog = document.querySelector(".add-project-dialog")
