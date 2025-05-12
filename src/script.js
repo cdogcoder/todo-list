@@ -107,9 +107,10 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
         projectTitle.textContent = selectedProjectTitle;
         projectDescription.textContent = selectedProjectDescription;
         if (!selectedProjectTodoItems.length) {
-            mainWindow.textContent = "nothing yet";
+            mainWindow.textContent = "nothing yet"; 
         } else {
             selectedProjectTodoItems.forEach((item) => {
+                const formattedItemDate = [...item["dueDate"].split("-").slice(1), item["dueDate"].split("-")[0]].join("/");
                 const todoItem = document.createElement("div");
                 todoItem.classList = "todo-item";
                 const todoItemInformation = document.createElement("div");
@@ -124,7 +125,7 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
                 todoItemDescription.textContent = item["description"];
                 const todoItemDueDate = document.createElement("span");
                 todoItemDueDate.classList = "todo-item-due-date";
-                todoItemDueDate.textContent = `Due: ${item["dueDate"]}`;
+                todoItemDueDate.textContent = `Due: ${formattedItemDate}`;
                 const todoItemPriority = document.createElement("span");
                 todoItemPriority.classList = "todo-item-priority";
                 todoItemPriority.textContent = `Priority: ${item["priority"]}`;
@@ -162,7 +163,7 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
             mainWindow.textContent = "nothing yet";
         } else {
             newestCreatedProjectTodoItems.forEach((item) => {
-                console.log(item)
+                const formattedItemDate = [...item["dueDate"].split("-").slice(1), item["dueDate"].split("-")[0]].join("/");
                 const todoItem = document.createElement("div");
                 todoItem.classList = "todo-item";
                 const todoItemInformation = document.createElement("div");
@@ -177,7 +178,7 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
                 todoItemDescription.textContent = item["description"];
                 const todoItemDueDate = document.createElement("span");
                 todoItemDueDate.classList = "todo-item-due-date";
-                todoItemDueDate.textContent = `Due: ${item["dueDate"]}`;
+                todoItemDueDate.textContent = `Due: ${formattedItemDate}`;
                 const todoItemPriority = document.createElement("span");
                 todoItemPriority.classList = "todo-item-priority";
                 todoItemPriority.textContent = `Priority: ${item["priority"]}`;
