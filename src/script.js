@@ -112,20 +112,22 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
             selectedProjectTodoItems.forEach((item) => {
                 const todoItem = document.createElement("div");
                 todoItem.classList = "todo-item";
+                const todoItemInformation = document.createElement("div");
+                todoItemInformation.classList = "todo-item-information";
                 const todoItemTitle = document.createElement("p");
                 todoItemTitle.classList = "todo-item-title";
-                todoItemTitle.textContent = item[title];
+                todoItemTitle.textContent = item["title"];
                 const todoItemProperties = document.createElement("p");
                 todoItemProperties.classList = "todo-item-properties";
                 const todoItemDescription = document.createElement("span");
                 todoItemDescription.classList = "todo-item-description";
-                todoItemDescription.textContent = item[description];
+                todoItemDescription.textContent = item["description"];
                 const todoItemDueDate = document.createElement("span");
                 todoItemDueDate.classList = "todo-item-due-date";
-                todoItemDueDate.textContent = item[dueDate];
+                todoItemDueDate.textContent = `Due: ${item["dueDate"]}`;
                 const todoItemPriority = document.createElement("span");
                 todoItemPriority.classList = "todo-item-priority";
-                todoItemPriority.textContent = item[priority];
+                todoItemPriority.textContent = `Priority: ${item["priority"]}`;
                 const todoItemButtonsContainer = document.createElement("div");
                 todoItemButtonsContainer.classList = "todo-item-buttons-container";
                 const editTodoItemButton = document.createElement("button");
@@ -140,8 +142,9 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
                 todoItemProperties.appendChild(todoItemPriority);
                 todoItemButtonsContainer.appendChild(editTodoItemButton);
                 todoItemButtonsContainer.appendChild(deleteTodoItemButton);
-                todoItem.appendChild(todoItemTitle);
-                todoItem.appendChild(todoItemProperties);
+                todoItemInformation.appendChild(todoItemTitle);
+                todoItemInformation.appendChild(todoItemProperties);
+                todoItem.appendChild(todoItemInformation);
                 todoItem.appendChild(todoItemButtonsContainer);
                 mainWindow.appendChild(todoItem);
             })
@@ -162,6 +165,8 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
                 console.log(item)
                 const todoItem = document.createElement("div");
                 todoItem.classList = "todo-item";
+                const todoItemInformation = document.createElement("div");
+                todoItemInformation.classList = "todo-item-information";
                 const todoItemTitle = document.createElement("p");
                 todoItemTitle.classList = "todo-item-title";
                 todoItemTitle.textContent = item["title"];
@@ -172,10 +177,10 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
                 todoItemDescription.textContent = item["description"];
                 const todoItemDueDate = document.createElement("span");
                 todoItemDueDate.classList = "todo-item-due-date";
-                todoItemDueDate.textContent = item["dueDate"];
+                todoItemDueDate.textContent = `Due: ${item["dueDate"]}`;
                 const todoItemPriority = document.createElement("span");
                 todoItemPriority.classList = "todo-item-priority";
-                todoItemPriority.textContent = item["priority"];
+                todoItemPriority.textContent = `Priority: ${item["priority"]}`;
                 const todoItemButtonsContainer = document.createElement("div");
                 todoItemButtonsContainer.classList = "todo-item-buttons-container";
                 const editTodoItemButton = document.createElement("button");
@@ -190,8 +195,9 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
                 todoItemProperties.appendChild(todoItemPriority);
                 todoItemButtonsContainer.appendChild(editTodoItemButton);
                 todoItemButtonsContainer.appendChild(deleteTodoItemButton);
-                todoItem.appendChild(todoItemTitle);
-                todoItem.appendChild(todoItemProperties);
+                todoItemInformation.appendChild(todoItemTitle);
+                todoItemInformation.appendChild(todoItemProperties);
+                todoItem.appendChild(todoItemInformation);
                 todoItem.appendChild(todoItemButtonsContainer);
                 mainWindow.appendChild(todoItem);
             })

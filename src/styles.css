@@ -198,7 +198,7 @@ body::-webkit-scrollbar {
 .todo-item {
     border-radius: .5rem;
     padding: 1rem;
-    box-shadow: 0px 0px 2px .01px;
+    box-shadow: 0px 0px 2px .01px gray;
     display: flex;
     justify-content: space-between;
     max-height: 250px;
