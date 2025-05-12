@@ -18,8 +18,14 @@
             >Due Date: <input type="date" id="new-todo-item-due-date"
           /></label>
           <label for="new-todo-item-priority"
-            >Priority: <input type="select" id="new-todo-item-priority"
-          /></label>
+            >Priority:
+            <select id="new-todo-item-priority">
+              <option selected value="default">Choose one</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </label>
         </div>
         <div class="new-todo-item-buttons-container">
           <button class="cancel-new-todo-item-button">Cancel</button
@@ -59,7 +65,9 @@
       <div class="dashboard">
         <div class="project-information">
           <p class="project-title">No project available</p>
-          <p class="project-description">Click the "Add Project" button to start planning.</p>
+          <p class="project-description">
+            Click the "Add Project" button to start planning.
+          </p>
         </div>
         <button class="add-todo-item-button" hidden>Add Todo Item</button>
       </div>
