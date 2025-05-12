@@ -120,7 +120,7 @@ body::-webkit-scrollbar {
     gap: 1rem;
 }
 
-.new-project-properties input, .new-todo-item-properties input {
+.new-project-properties input, .new-todo-item-properties input, .new-todo-item-properties select {
     padding: 1px 5px;
     width: 200px;
 }
