@@ -41,6 +41,41 @@ function addProject(projectTitle, projectDescription) {
     displayProjectAndItems();
 }
 
+function saveNewProject() {
+    const newProjectTitleInput = document.querySelector("#new-project-title");
+    const newProjectDescriptionInput = document.querySelector("#new-project-description");
+    addProject(newProjectTitleInput.value, newProjectDescriptionInput.value);
+    newProjectTitleInput.value = "";
+    newProjectDescriptionInput.value = "";
+}
+
+function openProjectSave(projectSaveTitle) {
+    const projectTitles = Object.keys(projects).reverse();
+    const projectDescriptions = Object.values(projects).map((value) => value[0]).reverse();
+    const projectTodoItems = Object.values(projects).map((value) => value.slice(1)).reverse();
+
+    const projectIndex = projectTitles.findIndex((projectTitle) => projectTitle == projectSaveTitle);
+    displayProjectAndItems(projectTitles[projectIndex], projectDescriptions[projectIndex], projectTodoItems[projectIndex]);
+}
+
+function deleteProject(selectedProjectTitle) {
+    delete projects[selectedProjectTitle];
+    displayProjectsList();
+    displayProjectAndItems();
+}
+
+function saveNewTodoItem() {
+    const newTodoItemTitleInput = document.querySelector("#new-todo-item-title");
+    const newTodoItemDescriptionInput = document.querySelector("#new-todo-item-description");
+    const newTodoItemDueDateInput = document.querySelector("#new-todo-item-due-date");
+    const newTodoItemPriorityInput = document.querySelector("#new-todo-item-priority");
+    addTodoItem(newTodoItemTitleInput.value, newTodoItemDescriptionInput.value, newTodoItemDueDateInput.value, newTodoItemPriorityInput.value);
+    newTodoItemTitleInput.value = "";
+    newTodoItemDescriptionInput.value = "";
+    newTodoItemDueDateInput.value = "";
+    newTodoItemPriorityInput.value = "";
+}
+
 function addTodoItem(itemTitle, itemDescription, itemDueDate, itemPriority) {
     const currentProjectTitle = document.querySelector(".project-title").textContent;
     const currentProjectDescription = document.querySelector(".project-description").textContent;
@@ -171,42 +206,6 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
         displayProjectsList();
 
     }
-}
-
-function saveNewProject() {
-    const newProjectTitleInput = document.querySelector("#new-project-title");
-    const newProjectDescriptionInput = document.querySelector("#new-project-description");
-    addProject(newProjectTitleInput.value, newProjectDescriptionInput.value);
-    newProjectTitleInput.value = "";
-    newProjectDescriptionInput.value = "";
-}
-
-function openProjectSave(projectSaveTitle) {
-    const projectTitles = Object.keys(projects).reverse();
-    const projectDescriptions = Object.values(projects).map((value) => value[0]).reverse();
-    const projectTodoItems = Object.values(projects).map((value) => value.slice(1)).reverse();
-
-    const projectIndex = projectTitles.findIndex((projectTitle) => projectTitle == projectSaveTitle);
-    displayProjectAndItems(projectTitles[projectIndex], projectDescriptions[projectIndex], projectTodoItems[projectIndex]);
-}
-
-function deleteProject(selectedProjectTitle) {
-    delete projects[selectedProjectTitle];
-    displayProjectsList();
-    displayProjectAndItems();
-}
-
-function saveNewTodoItem() {
-    const newTodoItemTitleInput = document.querySelector("#new-todo-item-title");
-    const newTodoItemDescriptionInput = document.querySelector("#new-todo-item-description");
-    const newTodoItemDueDateInput = document.querySelector("#new-todo-item-due-date");
-    const newTodoItemPriorityInput = document.querySelector("#new-todo-item-priority");
-    addTodoItem(newTodoItemTitleInput.value, newTodoItemDescriptionInput.value, newTodoItemDueDateInput.value, newTodoItemPriorityInput.value);
-    newTodoItemTitleInput.value = "";
-    newTodoItemDescriptionInput.value = "";
-    newTodoItemDueDateInput.value = "";
-    newTodoItemPriorityInput.value = "";
-    console.log(projects)
 }
 
 const addProjectDialog = document.querySelector(".add-project-dialog")
