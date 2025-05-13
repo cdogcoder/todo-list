@@ -43,6 +43,7 @@ function addProject(projectTitle, projectDescription) {
 
 function addTodoItem(itemTitle, itemDescription, itemDueDate, itemPriority) {
     const currentProjectTitle = document.querySelector(".project-title").textContent;
+    const currentProjectDescription = document.querySelector(".project-description").textContent;
     const todoItem = {
         title: itemTitle,
         description: itemDescription,
@@ -50,7 +51,7 @@ function addTodoItem(itemTitle, itemDescription, itemDueDate, itemPriority) {
         priority: itemPriority
     }
     projects[currentProjectTitle].push(todoItem);
-    displayProjectAndItems();
+    displayProjectAndItems(currentProjectTitle, currentProjectDescription, true);
 }
 
 function displayProjectsList() {
@@ -106,9 +107,12 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
     } else if (selectedProjectTitle !== null && selectedProjectDescription !== null && selectedProjectTodoItems !== null) {
         projectTitle.textContent = selectedProjectTitle;
         projectDescription.textContent = selectedProjectDescription;
-        if (!selectedProjectTodoItems.length) {
+        if (!selectedProjectTodoItems.length || selectedProjectTodoItems !== true) {
             mainWindow.textContent = "nothing yet"; 
         } else {
+            if (selectedProjectTodoItems === true) {
+                selectedProjectTodoItems = projects[selectedProjectTitle].slice(1);
+            }
             selectedProjectTodoItems.forEach((item) => {
                 const formattedItemDate = [...item["dueDate"].split("-").slice(1), item["dueDate"].split("-")[0]].join("/");
                 const todoItem = document.createElement("div");
