@@ -90,6 +90,16 @@ function addTodoItem(itemTitle, itemDescription, itemDueDate, itemPriority) {
     displayProjectAndItems(currentProjectTitle, currentProjectDescription, currentProjectTodoItems);
 }
 
+function deleteTodoItem(itemTitle) {
+    const currentProjectTitle = document.querySelector(".project-title").textContent;
+    const currentProjectDescription = projects[currentProjectTitle][0];
+    let currentProjectTodoItems = projects[currentProjectTitle].slice(1);
+    const selectedProjectTodoItemIndex = currentProjectTodoItems.findIndex(item => itemTitle == item["title"]);
+    currentProjectTodoItems.splice(selectedProjectTodoItemIndex, 1);
+    projects[currentProjectTitle] = [currentProjectDescription, ...currentProjectTodoItems];
+    displayProjectAndItems(currentProjectTitle, currentProjectDescription, currentProjectTodoItems);
+}
+
 function createAndAppendDOMItemElements(item) {
     const mainWindow = document.querySelector(".main-window");
     const formattedItemDate = [...item["dueDate"].split("-").slice(1), item["dueDate"].split("-")[0]].join("/");
@@ -119,6 +129,7 @@ function createAndAppendDOMItemElements(item) {
     const deleteTodoItemButton = document.createElement("button");
     deleteTodoItemButton.classList = "delete-todo-item-button";
     deleteTodoItemButton.textContent = "Delete";
+    deleteTodoItemButton.addEventListener("click", () => deleteTodoItem(item["title"]));
     todoItemProperties.appendChild(todoItemDescription);
     todoItemProperties.appendChild(todoItemDueDate);
     todoItemProperties.appendChild(todoItemPriority);
