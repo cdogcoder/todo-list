@@ -88,7 +88,7 @@ body::-webkit-scrollbar {
     font-weight: bold;
 }
 
-.add-project-dialog, .add-todo-item-dialog {
+.add-project-dialog, .add-todo-item-dialog, .edit-todo-item-dialog {
     padding: 1.5rem;
     top: 50%;
     left: 50%;
@@ -97,41 +97,41 @@ body::-webkit-scrollbar {
     border-radius: .5rem;
 }
 
-.add-project-dialog > form, .add-todo-item-dialog > form {
+.add-project-dialog > form, .add-todo-item-dialog > form, .edit-todo-item-dialog > form {
     display: flex;
     flex-direction: column;
     gap: 1.15rem;
 }
 
-.add-project-dialog .dialog-title, .add-todo-item-dialog .dialog-title{
+.add-project-dialog .dialog-title, .add-todo-item-dialog .dialog-title, .edit-todo-item-dialog .dialog-title{
     font-size: 1.5rem;
     font-weight: bold;
 }
 
-.new-project-properties, .new-todo-item-properties {
+.new-project-properties, .new-todo-item-properties, .edit-todo-item-properties {
     display: flex;
     flex-direction: column;
     gap: .5rem;
 }
 
-.new-project-properties > *, .new-todo-item-properties > * {
+.new-project-properties > *, .new-todo-item-properties > *, .edit-todo-item-properties > * {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
 }
 
-.new-project-properties input, .new-todo-item-properties input, .new-todo-item-properties select {
+.new-project-properties input, .new-todo-item-properties input, .new-todo-item-properties select, .edit-todo-item-properties input, .edit-todo-item-properties select{
     padding: 1px 5px;
     width: 200px;
 }
 
-.new-project-buttons-container, .new-todo-item-buttons-container {
+.new-project-buttons-container, .new-todo-item-buttons-container, .edit-todo-item-buttons-container {
     display: flex;
     gap: .5rem;
     align-self: flex-end;
 }
 
-.new-project-buttons-container > *, .new-todo-item-buttons-container > * {
+.new-project-buttons-container > *, .new-todo-item-buttons-container > *, .edit-todo-item-buttons-container > * {
     padding: 1px 5px;
 }
 

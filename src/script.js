@@ -236,3 +236,9 @@ addTodoItemButton.addEventListener("click", () => {
 
 const saveNewTodoItemButton = document.querySelector(".save-new-todo-item-button");
 saveNewTodoItemButton.addEventListener("click", saveNewTodoItem);
+
+const editTodoItemDialog = document.querySelector(".edit-todo-item-dialog");
+const editTodoItemButton = document.querySelector(".edit-todo-item-button");
+editTodoItemButton.addEventListener("click", () => {
+    editTodoItemDialog.showModal();
+})
