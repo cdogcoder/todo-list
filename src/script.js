@@ -100,33 +100,6 @@ function deleteTodoItem(itemTitle) {
     displayProjectAndItems(currentProjectTitle, currentProjectDescription, currentProjectTodoItems);
 }
 
-function editTodoItem(itemTitle, itemDescription, itemDueDate, itemPriority) {
-    const currentProjectTitle = document.querySelector(".project-title").textContent;
-    const currentProjectDescription = projects[currentProjectTitle][0];
-    let currentProjectTodoItems = projects[currentProjectTitle].slice(1);
-    const selectedProjectTodoItemIndex = currentProjectTodoItems.findIndex(item => itemTitle == item["title"]);
-    currentProjectTodoItems[selectedProjectTodoItemIndex] = {
-        title: itemTitle,
-        description: itemDescription,
-        dueDate: itemDueDate,
-        priority: itemPriority
-    }
-    projects[currentProjectTitle] = [currentProjectDescription, ...currentProjectTodoItems];
-    displayProjectAndItems(currentProjectTitle, currentProjectDescription, currentProjectTodoItems);
-}
-
-function saveItemEditChanges() {
-    const editTodoItemTitleInput = document.querySelector("#edit-todo-item-title");
-    const editTodoItemDescriptionInput = document.querySelector("#edit-todo-item-description");
-    const editTodoItemDueDateInput = document.querySelector("#edit-todo-item-due-date");
-    const editTodoItemPriorityInput = document.querySelector("#edit-todo-item-priority");
-    editTodoItem(editTodoItemTitleInput.value, editTodoItemDescriptionInput.value, editTodoItemDueDateInput.value, editTodoItemPriorityInput.value);
-    editTodoItemTitleInput.value = "";
-    editTodoItemDescriptionInput.value = "";
-    editTodoItemDueDateInput.value = "";
-    editTodoItemPriorityInput.value = "";
-}
-
 function createAndAppendDOMItemElements(item) {
     const mainWindow = document.querySelector(".main-window");
     const editTodoItemDialog = document.querySelector(".edit-todo-item-dialog");
@@ -244,7 +217,6 @@ function displayProjectAndItems(selectedProjectTitle = null, selectedProjectDesc
             newestCreatedProjectTodoItems.forEach((item) => createAndAppendDOMItemElements(item));
         }
         displayProjectsList();
-
     }
 }
 
@@ -266,5 +238,3 @@ addTodoItemButton.addEventListener("click", () => {
 const saveNewTodoItemButton = document.querySelector(".save-new-todo-item-button");
 saveNewTodoItemButton.addEventListener("click", saveNewTodoItem);
 
-const saveEditTodoItemButton = document.querySelector(".save-edit-todo-item-button");
-saveEditTodoItemButton.addEventListener("click", saveItemEditChanges);
