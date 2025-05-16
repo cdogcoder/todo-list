@@ -209,15 +209,15 @@ body::-webkit-scrollbar {
     border: 2px solid red;
 } */
 
-.todo-item:first-child {
+.high-priority {
     background-color: rgb(240, 248, 255);
 }
 
-.todo-item:nth-child(2) {
+.medium-priority {
     background-color: rgb(255, 240, 242);
 }
 
-.todo-item:nth-child(3) {
+.low-priority {
     background-color: rgb(255, 255, 230);
 }
 

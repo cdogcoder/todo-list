@@ -160,6 +160,13 @@ function createAndAppendDOMItemElements(item) {
     todoItemDueDate.textContent = `Due: ${formattedItemDate}`;
     const todoItemPriority = document.createElement("span");
     todoItemPriority.classList = "todo-item-priority";
+    if (item["priority"] == "High") {
+        todoItem.classList = "todo-item high-priority";
+    } else if (item["priority"] == "Medium") {
+        todoItem.classList = "todo-item medium-priority";
+    } else if (item["priority"] == "Low") {
+        todoItem.classList = "todo-item low-priority"; 
+    }
     todoItemPriority.textContent = `Priority: ${item["priority"]}`;
     const todoItemButtonsContainer = document.createElement("div");
     todoItemButtonsContainer.classList = "todo-item-buttons-container";
