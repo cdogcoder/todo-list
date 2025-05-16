@@ -161,9 +161,12 @@ function createAndAppendDOMItemElements(item) {
         const editTodoItemDescriptionInput = document.querySelector("#edit-todo-item-description");
         const editTodoItemDueDateInput = document.querySelector("#edit-todo-item-due-date");
         const editTodoItemPriorityInput = document.querySelector("#edit-todo-item-priority");
+        console.log(item["title"], item["description"], item["dueDate"], item["priority"])
+        console.log(editTodoItemTitleInput.defaultValue)
+        editTodoItemTitleInput.value = item["title"];
         editTodoItemTitleInput.defaultValue = item["title"];
-        editTodoItemDescriptionInput.defaultValue = item["description"];
-        editTodoItemDueDateInput.defaultValue = item["dueDate"];
+        editTodoItemDescriptionInput.value = item["description"];
+        editTodoItemDueDateInput.value = item["dueDate"];
         editTodoItemPriorityInput.value = item["priority"];
     });
     const deleteTodoItemButton = document.createElement("button");
