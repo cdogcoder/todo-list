@@ -204,10 +204,10 @@ body::-webkit-scrollbar {
     max-height: 250px;
     width: 100%;
 }
-/* 
-.todo-item * {
-    border: 2px solid red;
-} */
+
+option[selected] {
+    display: none;
+}
 
 .high-priority {
     background-color: rgb(240, 248, 255);
