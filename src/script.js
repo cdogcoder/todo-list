@@ -81,11 +81,14 @@ function saveNewTodoItem() {
     const newTodoItemDescriptionInput = document.querySelector("#new-todo-item-description");
     const newTodoItemDueDateInput = document.querySelector("#new-todo-item-due-date");
     const newTodoItemPriorityInput = document.querySelector("#new-todo-item-priority");
-    addTodoItem(newTodoItemTitleInput.value, newTodoItemDescriptionInput.value, newTodoItemDueDateInput.value, newTodoItemPriorityInput.value);
-    newTodoItemTitleInput.value = "";
-    newTodoItemDescriptionInput.value = "";
-    newTodoItemDueDateInput.value = "";
-    newTodoItemPriorityInput.value = "";
+    if (newTodoItemTitleInput.value && newTodoItemDescriptionInput.value && newTodoItemDueDateInput.value && newTodoItemPriorityInput.value) {
+        addTodoItem(newTodoItemTitleInput.value, newTodoItemDescriptionInput.value, newTodoItemDueDateInput.value, newTodoItemPriorityInput.value);
+        newTodoItemTitleInput.value = "";
+        newTodoItemDescriptionInput.value = "";
+        newTodoItemDueDateInput.value = "";
+        newTodoItemPriorityInput.value = "";
+        addTodoItemDialog.close();
+    }
 }
 
 function addTodoItem(itemTitle, itemDescription, itemDueDate, itemPriority) {
@@ -300,6 +303,11 @@ const addTodoItemDialog = document.querySelector(".add-todo-item-dialog");
 const addTodoItemButton = document.querySelector(".add-todo-item-button");
 addTodoItemButton.addEventListener("click", () => {
     addTodoItemDialog.showModal();
+})
+
+const cancelNewTodoItemButton = document.querySelector(".cancel-new-todo-item-button");
+cancelNewTodoItemButton.addEventListener("click", () => {
+    addTodoItemDialog.close();
 })
 
 const saveNewTodoItemButton = document.querySelector(".save-new-todo-item-button");
