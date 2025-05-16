@@ -34,10 +34,18 @@ import "./styles.css"
 //    creating todo items, editing todo items, deleting todo items, etc) should be saved to local storage (find out how to implement local
 //    storage online).
 
-const projects = {}
+let projects = {};
+
+window.addEventListener("load", () => {
+    projects = JSON.parse(window.localStorage.getItem("projects"));
+    console.log(projects)
+    displayProjectsList();
+    displayProjectAndItems();
+})
 
 function addProject(projectTitle, projectDescription) {
     projects[projectTitle] = [projectDescription];
+    window.localStorage.setItem("projects", JSON.stringify(projects));
     displayProjectAndItems();
 }
 
@@ -60,6 +68,7 @@ function openProjectSave(projectSaveTitle) {
 
 function deleteProject(selectedProjectTitle) {
     delete projects[selectedProjectTitle];
+    window.localStorage.setItem("projects", JSON.stringify(projects));
     displayProjectsList();
     displayProjectAndItems();
 }
@@ -87,6 +96,7 @@ function addTodoItem(itemTitle, itemDescription, itemDueDate, itemPriority) {
     }
     projects[currentProjectTitle].push(todoItem);
     const currentProjectTodoItems = projects[currentProjectTitle].slice(1);
+    window.localStorage.setItem("projects", JSON.stringify(projects));
     displayProjectAndItems(currentProjectTitle, currentProjectDescription, currentProjectTodoItems);
 }
 
@@ -97,6 +107,7 @@ function deleteTodoItem(itemTitle) {
     const selectedProjectTodoItemIndex = currentProjectTodoItems.findIndex(item => itemTitle == item["title"]);
     currentProjectTodoItems.splice(selectedProjectTodoItemIndex, 1);
     projects[currentProjectTitle] = [currentProjectDescription, ...currentProjectTodoItems];
+    window.localStorage.setItem("projects", JSON.stringify(projects));
     displayProjectAndItems(currentProjectTitle, currentProjectDescription, currentProjectTodoItems);
 }
 
@@ -112,6 +123,7 @@ function editTodoItem(originalItemTitle, editedItemTitle, editedItemDescription,
         priority: editedItemPriority
     }
     projects[currentProjectTitle] = [currentProjectDescription, ...currentProjectTodoItems];
+    window.localStorage.setItem("projects", JSON.stringify(projects));
     displayProjectAndItems(currentProjectTitle, currentProjectDescription, currentProjectTodoItems);
 }
 
@@ -120,7 +132,6 @@ function saveItemEditChanges() {
     const editTodoItemDescriptionInput = document.querySelector("#edit-todo-item-description");
     const editTodoItemDueDateInput = document.querySelector("#edit-todo-item-due-date");
     const editTodoItemPriorityInput = document.querySelector("#edit-todo-item-priority");
-    console.log(editTodoItemPriorityInput.value)
     editTodoItem(editTodoItemTitleInput.defaultValue, editTodoItemTitleInput.value, editTodoItemDescriptionInput.value, editTodoItemDueDateInput.value, editTodoItemPriorityInput.value);
     editTodoItemTitleInput.value = "";
     editTodoItemDescriptionInput.value = "";
