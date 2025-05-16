@@ -19,8 +19,8 @@
           /></label>
           <label for="edit-todo-item-priority" name="itemPriority"
             >Priority:
-            <select id="edit-todo-item-priority">
-              <option selected value="default">Choose one</option>
+            <select required id="edit-todo-item-priority">
+              <option disabled selected value="default">Choose one</option>
               <option value="High">High</option>
               <option value="Medium">Medium</option>
               <option value="Low">Low</option>
@@ -38,18 +38,18 @@
         <p class="dialog-title">New Todo Item</p>
         <div class="new-todo-item-properties">
           <label for="new-todo-item-title"
-            >Title: <input required required type="text" id="new-todo-item-title" name="itemTitle"
+            >Title: <input required type="text" id="new-todo-item-title" name="itemTitle"
           /></label>
           <label for="new-todo-item-description"
-            >Description: <input required required type="text" id="new-todo-item-description" name="itemDescription"
+            >Description: <input required type="text" id="new-todo-item-description" name="itemDescription"
           /></label>
           <label for="new-todo-item-due-date"
-            >Due Date: <input required required type="date" id="new-todo-item-due-date" name="itemDueDate"
+            >Due Date: <input required type="date" id="new-todo-item-due-date" name="itemDueDate"
           /></label>
           <label for="new-todo-item-priority" name="itemPriority"
             >Priority:
-            <select id="new-todo-item-priority">
-              <option selected value="default">Choose one</option>
+            <select required id="new-todo-item-priority">
+              <option disabled selected value="default">Choose one</option>
               <option value="High">High</option>
               <option value="Medium">Medium</option>
               <option value="Low">Low</option>
@@ -67,10 +67,10 @@
         <p class="dialog-title">New Project</p>
         <div class="new-project-properties">
           <label for="new-project-title"
-            >Title: <input required required type="text" id="new-project-title" name="projectTitle"
+            >Title: <input required type="text" id="new-project-title" name="projectTitle"
           /></label>
           <label for="new-project-description"
-            >Description: <input required required type="text" id="new-project-description" name="projectDescription"
+            >Description: <input required type="text" id="new-project-description" name="projectDescription"
           /></label>
         </div>
         <div class="new-project-buttons-container">
