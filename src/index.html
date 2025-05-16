@@ -9,13 +9,13 @@
         <p class="dialog-title">Edit Todo Item</p>
         <div class="edit-todo-item-properties">
           <label for="edit-todo-item-title"
-            >Title: <input type="text" id="edit-todo-item-title" name="itemTitle"
+            >Title: <input required type="text" id="edit-todo-item-title" name="itemTitle"
           /></label>
           <label for="edit-todo-item-description"
-            >Description: <input type="text" id="edit-todo-item-description" name="itemDescription"
+            >Description: <input required type="text" id="edit-todo-item-description" name="itemDescription"
           /></label>
           <label for="edit-todo-item-due-date"
-            >Due Date: <input type="date" id="edit-todo-item-due-date" name="itemDueDate"
+            >Due Date: <input required type="date" id="edit-todo-item-due-date" name="itemDueDate"
           /></label>
           <label for="edit-todo-item-priority" name="itemPriority"
             >Priority:
@@ -38,13 +38,13 @@
         <p class="dialog-title">New Todo Item</p>
         <div class="new-todo-item-properties">
           <label for="new-todo-item-title"
-            >Title: <input type="text" id="new-todo-item-title" name="itemTitle"
+            >Title: <input required required type="text" id="new-todo-item-title" name="itemTitle"
           /></label>
           <label for="new-todo-item-description"
-            >Description: <input type="text" id="new-todo-item-description" name="itemDescription"
+            >Description: <input required required type="text" id="new-todo-item-description" name="itemDescription"
           /></label>
           <label for="new-todo-item-due-date"
-            >Due Date: <input type="date" id="new-todo-item-due-date" name="itemDueDate"
+            >Due Date: <input required required type="date" id="new-todo-item-due-date" name="itemDueDate"
           /></label>
           <label for="new-todo-item-priority" name="itemPriority"
             >Priority:
@@ -67,10 +67,10 @@
         <p class="dialog-title">New Project</p>
         <div class="new-project-properties">
           <label for="new-project-title"
-            >Title: <input type="text" id="new-project-title" name="projectTitle"
+            >Title: <input required required type="text" id="new-project-title" name="projectTitle"
           /></label>
           <label for="new-project-description"
-            >Description: <input type="text" id="new-project-description" name="projectDescription"
+            >Description: <input required required type="text" id="new-project-description" name="projectDescription"
           /></label>
         </div>
         <div class="new-project-buttons-container">

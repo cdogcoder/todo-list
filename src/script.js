@@ -52,9 +52,12 @@ function addProject(projectTitle, projectDescription) {
 function saveNewProject() {
     const newProjectTitleInput = document.querySelector("#new-project-title");
     const newProjectDescriptionInput = document.querySelector("#new-project-description");
-    addProject(newProjectTitleInput.value, newProjectDescriptionInput.value);
-    newProjectTitleInput.value = "";
-    newProjectDescriptionInput.value = "";
+    if (newProjectTitleInput.value && newProjectDescriptionInput.value){
+        addProject(newProjectTitleInput.value, newProjectDescriptionInput.value);
+        newProjectTitleInput.value = "";
+        newProjectDescriptionInput.value = "";
+        addProjectDialog.close()
+    }
 }
 
 function openProjectSave(projectSaveTitle) {
@@ -283,6 +286,11 @@ const addProjectDialog = document.querySelector(".add-project-dialog")
 const addProjectButton = document.querySelector(".add-project-button");
 addProjectButton.addEventListener("click", () => {
     addProjectDialog.showModal();
+})
+
+const cancelNewProjectButton = document.querySelector(".cancel-new-project-button");
+cancelNewProjectButton.addEventListener("click", () => {
+    addProjectDialog.close();
 })
 
 const saveNewProjectButton = document.querySelector(".save-new-project-button");
